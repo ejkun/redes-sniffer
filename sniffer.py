@@ -17,13 +17,16 @@ def pktChoice(pkt):
     print("Pacote escolhido: {}".format(pkt.summary()))
     acao = 0
     while (acao is 0):
-        acao = int(raw_input("Escolha uma das seguintes ações:\n\t[1] Mostrar o pacote completo\n\t[2] Gravar dados do pacotes em arquivo EPS\n\t[0] Sair\n") or 0)
+        acao = int(raw_input("Escolha uma das seguintes ações:\n\t[1] Mostrar o pacote completo\n\t[2] Gravar dados do pacotes em arquivo EPS\n\t[3] HexDump\n\t[0] Sair\n") or 0)
         if acao is 0:
             print("Opção inválida, tente novamente")
     if acao is 1:
         pkt.show()
     elif acao is 2:
         pkt.psdump("./pkt.eps", layer_shift=1)
+    elif acao is 3:
+        print("HEXDUMP")
+        hexdump(pkt)
 
 main = -1
 while (main is not 0):
