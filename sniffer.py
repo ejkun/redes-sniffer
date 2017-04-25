@@ -67,7 +67,7 @@ while (main is not 0):
         portClient = int(raw_input("Entre com a sua porta: ") or RandShort())
         if portEnd is 0:
             portEnd = portStart
-        ans = sr1(IP(dst=addr)/TCP(sport=portClient,dport=(portStart, portEnd),flags="S"))
+        ans,unans = sr(IP(dst=addr)/TCP(sport=portClient,dport=(portStart, portEnd),flags="S"))
         ans.summary()
     elif main is 3:
         addr = raw_input("Entre com o IP: ")
